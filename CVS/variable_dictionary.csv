@@ -1,0 +1,43 @@
+Variable,Type,Source,Description
+Year,numeric,CDMX / Microcredentials,Calendar year
+Avg_Wage_CDMX,numeric,CDMX,Average monthly wage in general workforce in Mexico City (MXN)
+Tech_Workers_CDMX,numeric,CDMX,Total number of workers in tech occupations in Mexico City
+Avg_Wage_Tech,numeric,CDMX,Average monthly wage in tech occupations in Mexico City (MXN)
+Informality_Rate_General,numeric,CDMX,Percentage of workers employed informally in the general economy
+Informality_Rate_HigherEd,numeric,CDMX,Informality rate among higher education graduates
+Informality_Rate_Tech,numeric,CDMX,Informality rate within the tech sector
+Wage_Gap_Formal_Informal,numeric,CDMX,Average wage differential between formal and informal workers (%)
+University_Annual_RealPrice_Pesos,numeric,CDMX,Average annual university tuition in real pesos
+University_Annual_RealPrice_USD,numeric,CDMX,"Same as above, converted to USD using fixed exchange rate"
+University_Inflation_Rate,numeric,CDMX,Annual inflation rate for higher education costs
+HigherEd_Enrollment,numeric,CDMX,Number of students enrolled in higher education
+Unemployment_Rate,numeric,CDMX,Unemployment rate in Mexico City
+Enrollment_Workforce_Ratio,numeric,CDMX,Ratio of higher education enrollment to workforce size
+Tech_Workforce_Ratio,numeric,CDMX,Percentage of workforce in tech occupations
+Tech_Wage_Premium,numeric,CDMX,Wage premium of tech jobs over average jobs (%)
+year,numeric,Massachusetts,Calendar year
+avg_wage_tech,numeric,Massachusetts,Average monthly wage in tech sector (USD)
+tech_workers,numeric,Massachusetts,Total number of tech workers
+unemployment_rate,numeric,Massachusetts,Statewide unemployment rate (%)
+tuition_in_state,numeric,Massachusetts,Annual tuition for in-state public universities (USD)
+tuition_out_state,numeric,Massachusetts,Annual tuition for out-of-state students at public universities (USD)
+tuition_per_fte,numeric,Massachusetts,Tuition cost per full-time equivalent student
+tuition_private,numeric,Massachusetts,Annual tuition at private institutions (USD)
+tuition_public_in_state,numeric,Massachusetts,Tuition at public universities for in-state residents (USD)
+tuition_public_out_state,numeric,Massachusetts,Tuition at public universities for out-of-state residents (USD)
+higher_ed_enrollment,numeric,Massachusetts,Annual number of higher education enrollments (FTE)
+Registered_Learners_M_Coursera,numeric,Microcredentials,Number of registered learners on Coursera (millions)
+Registered_Learners_M_Edx,numeric,Microcredentials,Number of registered learners on edX (millions)
+Course_Enrollments_M_Coursera,numeric,Microcredentials,Total course enrollments on Coursera (millions)
+Course_Enrollments_M_Edx,numeric,Microcredentials,Total course enrollments on edX (millions)
+Avg_Certificate_Price_USD_Coursera,numeric,Microcredentials,Average price of Coursera certificates (USD)
+Avg_Certificate_Price_USD_Edx,numeric,Microcredentials,Average price of edX certificates (USD)
+Avg_Degree_Price_USD_Coursera,numeric,Microcredentials,Average total price of Coursera degrees (USD)
+Avg_Degree_Price_USD_Edx,numeric,Microcredentials,Average total price of edX degrees (USD)
+Avg_MasterTrack_Price_USD,character,Microcredentials,Average price of Coursera MasterTrack programs (USD)
+Avg_MicroMasters_Price_USD,numeric,Microcredentials,Average price of edX MicroMasters programs (USD)
+Avg_MicroBachelors_Price_USD,numeric,Microcredentials,Average price of edX MicroBachelors programs (USD)
+Completion_Rate_Perc,numeric,Microcredentials,Average course completion rate (%) across platforms
+employer_recognition_us,numeric,Microcredentials,Percentage of employers recognizing microcredentials in the U.S.
+Avg_Certificate_Price_USD_Combined,numeric,Microcredentials,Combined average certificate price (Coursera + edX)
+Avg_Degree_Price_USD_Combined,numeric,Microcredentials,Combined average degree price (Coursera + edX)
