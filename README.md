@@ -20,8 +20,8 @@ This repository contains all the code and data used for my thesis:
 
 This repository starts from cleaned and filtered CSV files:
 - `CDMX_FINAL_FILTERED_UPDATED.csv`
-- `MASSACHUSETTS_FINAL_FILTERED.csv`
-- `MICROCREDENTIALS_FINAL_FILTERED.csv`
+- `MASSACHUSETTS_FINAL_FILTERED_UPDATED.csv`
+- `MICROCREDENTIALS_FINAL_FILTERED_UPDATED.csv`
 
 For reproducibility, all scripts begin with these processed datasets in the `data/` folder. The original data cleaning and preparation steps are not included in this repository.
 
