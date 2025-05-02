@@ -9,7 +9,7 @@ library(ggplot2)
 
 # Load panel and microcredentials data
 panel <- read_csv("panel_data_final.csv")
-micro <- read_csv("MICROCREDENTIALS_FINAL_FILTERED.csv")
+micro <- read_csv("MICROCREDENTIALS_FINAL_FILTERED_UPDATED.csv")
 
 # Create normalized exposure indicator for microcredentials
 micro <- micro %>%
