@@ -7,12 +7,11 @@ This repository contains all the code and data used for my thesis:
 
 ## Repository Structure
 
-- `01_data_preprocessing_variable_selection.R` – Impute missing values and select variables for analysis
-- `02_descriptive_graphs.R` – Generate descriptive graphs (wages, enrollment, workforce, costs)
-- `03_panel_construction.R` – Build the combined panel dataset for DiD models
-- `04_did_models_and_robustness.R` – Run DiD models and robustness checks
-- `05_heterogeneous_effects.R` – Estimate models with heterogeneous effects by period
-- `06_microcredentials_effects_and_costs.R` – Analyze microcredentials effects and compare costs
+- `01_descriptive_graphs.R` – Generate descriptive graphs (wages, enrollment, workforce, costs)
+- `02_panel_construction.R` – Build the combined panel dataset for DiD models
+- `03_did_models_and_robustness.R` – Run DiD models and robustness checks
+- `04_heterogeneous_effects.R` – Estimate models with heterogeneous effects by period
+- `05_microcredentials_effects_and_costs.R` – Analyze microcredentials effects and compare costs
 - `data/` – Contains the processed CSV files needed for the analysis
 
 ---
@@ -27,6 +26,11 @@ This repository starts from cleaned and filtered CSV files:
 For reproducibility, all scripts begin with these processed datasets in the `data/` folder. The original data cleaning and preparation steps are not included in this repository.
 
 ---
+
+## Data 
+
+This repository includes only the processed and cleaned CSV files required to reproduce the analysis.  
+For access to raw data or original files, please contact the author directly. Alternatively, each dataset was obtained from publicly available sources as listed in the **Data Sources** section below.
 
 ## Data Sources
 
