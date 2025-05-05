@@ -10,8 +10,9 @@ This repository contains all the code and data used for my thesis:
 - `01_descriptive_graphs.R` – Generate descriptive graphs (wages, enrollment, workforce, costs)
 - `02_panel_construction.R` – Build the combined panel dataset for DiD models
 - `03_did_models_and_robustness.R` – Run DiD models and robustness checks
-- `04_heterogeneous_effects.R` – Estimate models with heterogeneous effects by period
-- `05_microcredentials_effects_and_costs.R` – Analyze microcredentials effects and compare costs
+- `04_placebo_test.R` – Run placebo DiD model using non-tech sector (Leisure & Hospitality) to validate treatment specificity.
+- `05_heterogeneous_effects.R` – Estimate models with heterogeneous effects by period
+- `06_microcredentials_effects_and_costs.R` – Analyze microcredentials effects and compare costs
 - `data/` – Contains the processed CSV files needed for the analysis
 
 ---
@@ -22,6 +23,7 @@ This repository starts from cleaned and filtered CSV files:
 - `CDMX_FINAL_FILTERED_UPDATED.csv`
 - `MASSACHUSETTS_FINAL_FILTERED_UPDATED.csv`
 - `MICROCREDENTIALS_FINAL_FILTERED_UPDATED.csv`
+- `Placebo_Test_LH_CDMX_MASS_2020_2024.csv`
 
 For reproducibility, all scripts begin with these processed datasets in the `data/` folder. The original data cleaning and preparation steps are not included in this repository.
 
