@@ -1,0 +1,13 @@
+# placebo_test_model.R
+
+# Load libraries
+library(ggplot2)
+
+# Load data
+placebo_df <- read.csv("data/placebo_test_data.csv")
+
+# Run placebo DiD regression
+placebo_model <- lm(Employment ~ MC_Exposure * Treatment + factor(Year), data = placebo_df)
+
+# View summary
+summary(placebo_model)
