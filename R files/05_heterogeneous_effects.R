@@ -23,28 +23,30 @@ panel <- panel %>%
 
 # Estimate heterogeneous DiD models (fixed effects by region, clustered SEs)
 modelo_hetero_wages <- feols(
-  avg_wage_tech ~ i(Period_Treatment, ref = "0.Pre") +
+  avg_wage_tech ~ i(Period_Treatment, ref = "1.Pre") +
     higher_ed_enrollment + unemployment_rate + university_cost_usd | Region,
   data = panel,
   cluster = ~Region
 )
 
 modelo_hetero_empleo <- feols(
-  tech_workers ~ i(Period_Treatment, ref = "0.Pre") +
+  tech_workers ~ i(Period_Treatment, ref = "1.Pre") +
     higher_ed_enrollment + unemployment_rate + university_cost_usd | Region,
   data = panel,
   cluster = ~Region
 )
 
-# Display results with clear labels
+# Display results with clear labels in the Viewer
 modelsummary(
   list(
     "Tech Wages – Extended Periods" = modelo_hetero_wages,
     "Tech Employment – Extended Periods" = modelo_hetero_empleo
   ),
   coef_rename = c(
+    "Period_Treatment1.Pre" = "CDMX × Pre",
     "Period_Treatment1.Post2020" = "CDMX × Post-2020",
     "Period_Treatment1.Post2021" = "CDMX × Post-2021",
+    "Period_Treatment0.Pre" = "Massachusetts × Pre",
     "Period_Treatment0.Post2020" = "Massachusetts × Post-2020",
     "Period_Treatment0.Post2021" = "Massachusetts × Post-2021",
     "higher_ed_enrollment" = "Education Enrollment",
@@ -53,5 +55,6 @@ modelsummary(
   ),
   stars = TRUE,
   gof_omit = "Adj|Within|Pseudo|Log|FE",
-  title = "Table: Heterogeneous Effects across Pre / Post-2020 / Post-2021"
+  title = "Table: Heterogeneous Effects across Pre / Post-2020 / Post-2021",
 )
+
