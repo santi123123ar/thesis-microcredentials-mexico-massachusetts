@@ -7,24 +7,31 @@ library(readr)
 library(tidyr)
 library(scales)
 
+# Set color consistency
+region_colors <- c("CDMX" = "darkred", "Massachusetts" = "blue")
+
 setwd("~/CVS TESIS/CDMX:MASSACHUSETTS:MICROCREDENTIALS")
 cdmx_data <- read_csv("CDMX_FINAL_FILTERED_UPDATED.csv")
 mass_data <- read_csv("MASSACHUSETTS_FINAL_FILTERED.csv")
 fte_mass <- read_csv("~/CVS TESIS/Massachusetts/IPEDS - Integrated Postsecondary Education Data System/12-MONTH ENROLLMENT/massachusetts_fte_enrollment_final.csv")
 
-# 1. Tech Wage Trends – CDMX
+# 1. Tech Wage Trends – CDMX (converted to USD at 1 USD = 18.33 MXN)
+exchange_rate <- 18.33
+
 wage_cdmx <- cdmx_data %>%
   select(Year, Tech_Wage_CDMX = Avg_Wage_Tech) %>%
-  filter(Year >= 2012)
+  filter(Year >= 2012) %>%
+  mutate(Tech_Wage_CDMX_USD = Tech_Wage_CDMX / exchange_rate)
+
 plot_wage_cdmx <- ggplot(wage_cdmx, aes(x = as.factor(Year), y = Tech_Wage_CDMX)) +
-  geom_col(fill = "red") +
+  geom_col(fill = "darkred") +
   labs(
-    title = "Tech Wage Trends – CDMX",
+    title = "Tech Wage Trends – CDMX (USD)",
     x = "Year",
-    y = "Wage (Pesos)",
-    caption = "Source: Encuesta Nacional de Ocupación y Empleo (ENOE)"
+    y = "Wage (USD)",
+    caption = "Source: ENOE. Exchange rate: 1 USD = 18.33 MXN"
   ) +
-  scale_y_continuous(labels = comma_format(scale = 1e-3, suffix = "k")) +
+  scale_y_continuous(labels = label_dollar()) +
   theme_minimal() +
   theme(
     plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
@@ -37,7 +44,7 @@ wage_mass <- mass_data %>%
   select(Year = year, Tech_Wage_MA = avg_wage_tech) %>%
   filter(Year >= 2012)
 plot_wage_mass <- ggplot(wage_mass, aes(x = as.factor(Year), y = Tech_Wage_MA)) +
-  geom_col(fill = "blue") +
+  geom_col(fill = region_colors["Massachusetts"]) +
   labs(
     title = "Tech Wage Trends – Massachusetts",
     x = "Year",
@@ -75,7 +82,7 @@ plot_growth <- ggplot(all_growth, aes(x = Year, y = Tech_Workforce_GrowthRate, c
     y = "Growth Rate (%)",
     caption = "Sources: CDMX: ENOE; Massachusetts: US Bureau of Labor Statistics"
   ) +
-  scale_color_manual(values = c("CDMX" = "darkred", "Massachusetts" = "blue")) +
+  scale_color_manual(values = region_colors) +
   theme_minimal() +
   theme(
     plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
@@ -88,7 +95,7 @@ enroll_cdmx <- cdmx_data %>%
   select(Year, Enrollment = HigherEd_Enrollment) %>%
   filter(!is.na(Enrollment))
 plot_enroll_cdmx <- ggplot(enroll_cdmx, aes(x = as.factor(Year), y = Enrollment)) +
-  geom_col(fill = "darkgreen") +
+  geom_col(fill = region_colors["CDMX"]) +
   labs(
     title = "Higher Education Enrollment – CDMX",
     x = "Year",
@@ -107,7 +114,7 @@ plot_enroll_cdmx <- ggplot(enroll_cdmx, aes(x = as.factor(Year), y = Enrollment)
 fte_mass <- fte_mass %>%
   rename(Year = year, Enrollment = higher_ed_enrollment)
 plot_enroll_mass <- ggplot(fte_mass, aes(x = as.factor(Year), y = Enrollment)) +
-  geom_col(fill = "purple") +
+  geom_col(fill = region_colors["Massachusetts"]) +
   labs(
     title = "Higher Education Enrollment – Massachusetts",
     x = "Year",
@@ -130,3 +137,4 @@ print(plot_growth)
 print(plot_enroll_cdmx)
 print(plot_enroll_mass)
 dev.off()
+
